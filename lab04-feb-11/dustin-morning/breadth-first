@@ -1,0 +1,33 @@
+Consider the following graph:
+
+(A (B D)
+ B (A D C)
+ C (E B)
+ D (A B)
+ E (A C D)
+)
+
+We start in A.
+
+Find the shortest path to E.
+
+Breadt-first:
+
+  [[A]] one step
+
+  [[A B] [A D]] two steps
+
+  [[A B D] [A B C] [A D B]] three steps
+
+  [[A B C E] [A D B C]] four steps
+
+Stop we have an answer.
+
+This is the shortest answer.
+
+This is not the only answer.
+
+--
+
+
+
