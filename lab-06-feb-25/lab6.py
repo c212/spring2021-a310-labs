@@ -23,7 +23,13 @@ def hash3(string, size):
     return ((sum + 2) * 5) % size
 
 def conversion (string, size):
-    return string, (hash(string, size)),(hash2(string, size)),(hash3(string, size))
+    return (hash(string, size)),(hash2(string, size)),(hash3(string, size))
+
+def insert(filter, word):
+    tuple = conversion(word, len(filter))
+    for num in tuple:
+        filter[num] = 1
+    print(tuple)
         
 
 print(hash("morning", len(filter))) #in the sample, 8 and 10
@@ -41,5 +47,7 @@ print(hash3("sunshine", len(filter)))
 print(hash3("lecture", len(filter)))
 
 print(conversion("morning", len(filter)))
+insert(filter, "hello")
+print(filter)
 
 
