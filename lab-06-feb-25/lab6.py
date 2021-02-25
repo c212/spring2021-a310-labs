@@ -22,6 +22,10 @@ def hash3(string, size):
         sum = sum + ord(letter)
     return ((sum + 2) * 5) % size
 
+def conversion (string, size):
+    return string, (hash(string, size)),(hash2(string, size)),(hash3(string, size))
+        
+
 print(hash("morning", len(filter))) #in the sample, 8 and 10
 print(hash("sunshine", len(filter))) #in the sample, 5 and 6
 print(hash("lecture", len(filter)))
@@ -35,3 +39,7 @@ print(hash2("lecture", len(filter)))
 print(hash3("morning", len(filter))) 
 print(hash3("sunshine", len(filter)))
 print(hash3("lecture", len(filter)))
+
+print(conversion("morning", len(filter)))
+
+
