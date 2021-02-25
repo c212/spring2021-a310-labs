@@ -16,3 +16,11 @@ def h2(string,size):
     return sum % size
 
 print(h2("Arsenal",len(filterArray)))
+
+def h3(string, size):
+    sum = 0
+    count = 0
+    for letter in string:
+        count += 3
+        sum = sum + 7* count + ord(letter)
+    return sum % size
