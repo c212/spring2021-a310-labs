@@ -36,3 +36,13 @@ def insertName(name):
 print(filterArray)
 insertName("David")
 print(filterArray)
+
+def find(name):
+    val1=h(name,len(filterArray))
+    val2=h2(name,len(filterArray))
+    val3=h3(name,len(filterArray))
+
+def conversion(name,size):
+    return (h(name,size),h2(name,size),h3(name,size))
+
+print(conversion("josh",len(filterArray)))
