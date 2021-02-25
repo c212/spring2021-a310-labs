@@ -24,3 +24,15 @@ def h3(string, size):
         count += 3
         sum = sum + 7* count + ord(letter)
     return sum % size
+
+def insertName(name):
+    val1=h(name,len(filterArray))
+    val2=h2(name,len(filterArray))
+    val3=h3(name,len(filterArray))
+    filterArray[val1]=1
+    filterArray[val2]=1
+    filterArray[val3]=1
+
+print(filterArray)
+insertName("David")
+print(filterArray)
