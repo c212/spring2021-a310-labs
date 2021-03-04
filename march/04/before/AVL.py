@@ -1,4 +1,12 @@
 from BST import *
 
 class AVL(BST):
-  pass
+  def depth(self):
+    if self.left == None and self.right == None:
+      return 1
+    elif self.left == None:
+      return 1 + self.right.depth()
+    elif self.right == None:
+      return 1 + self.left.depth()
+    else:
+      return 1 + max(self.left.depth(), self.right.depth())
