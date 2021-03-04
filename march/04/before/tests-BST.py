@@ -6,15 +6,15 @@ print("Start from empty, insert ", num)
 a.display()
 num = 3
 print("----Now insert ", num)
-a.insert(num)
+a.insert(BST(num))
 a.display()
 print("---And insert 2:")
-a.insert(2)
+a.insert(BST(2))
 a.display()
 numbers = [7, 9, 0, 8, 1, 4, 5]
 print("---And insert (in order): ", numbers)
 for num in numbers:
-  a.insert(num)
+  a.insert(BST(num))
 a.display()
 
 # Start from empty, insert  6
@@ -38,4 +38,4 @@ a.display()
 # /    \  / 
 # 0    5  8 
 #  \        
-#  1        
+#  1  

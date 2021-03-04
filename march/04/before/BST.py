@@ -1,14 +1,14 @@
 class BST:
   def __init__(self, key, left = None, right = None):
     (self.key, self.left, self.right) = (key, left, right)
-  def insert(self, key): #-----------------( insert )-----------------
-    if self.key == key: return # this modifies the tree
-    elif self.key < key:
-      if self.right is None: self.right = BST(key)
-      else: self.right.insert(key)
-    else: # self.key > key
-      if self.left is None: self.left = BST(key)
-      else: self.left.insert(key)
+  def insert(self, node): #-----------------( insert )-----------------
+    if self.key == node.key: return # this modifies the tree
+    elif self.key < node.key:
+      if self.right is None: self.right = node
+      else: self.right.insert(node)
+    else: # self.key > node.key
+      if self.left is None: self.left = node
+      else: self.left.insert(node)
   def display(self): #---------------------( display )----------------
     lines, *_ = self._display_aux()
     for line in lines:
