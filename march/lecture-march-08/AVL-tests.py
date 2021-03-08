@@ -1,84 +1,77 @@
 from AVL import *
 
-import re
-num = input("Enter the first number: ")
-a = AVL(int(num)) # please be careful here 
+nums = [10, 1, 9, 2, 8, 3, 7, 4, 6, 5]
+a = AVL(nums[0])
+print("-------------starting with", nums[0])
 a.display()
-while True:
-  num = input("Enter command: ")
-  if num == 'bye':
-    break
-  else:
-    m = re.search('(\w+)\s+(\d+)', num)
-    command = m.group(1)
-    number = int(m.group(2))
-    if command == 'insert':
-      a.insert(AVL(number)) # and here (of course)
-      a.display()
-    else:
-      print("I don't understand ", command)
+for num in nums[1:]:
+  print("-------------after we add", num)
+  a.insert(AVL(num))
+  a = a.adjust()
+  a.display()
 
-#---- this is how it works: 
-#  
-# Enter the first number: 5
-# 5
-# Enter command: insert 2
-#  5
-# / 
-# 2 
-# Enter command: insert 4
-#  _5
+# ======== RESTART: C:\Users\dgerman\Desktop\march-08-lecture\tests-AVL.py ========
+# 
+# -------------starting with 10
+# 10
+# -------------after we add 1
+#  10
 # /  
-# 2  
-#  \ 
-#  4 
-# Enter command: insert 3
-#  __5
-# /   
-# 2_  
-#   \ 
-#   4 
-#  /  
-#  3  
-# Enter command: insert 1
-#   __5
-#  /   
-#  2_  
-# /  \ 
-# 1  4 
-#   /  
-#   3  
-# Enter command: insert 7
-#   __5 
+# 1  
+# -------------after we add 9
+#  9_ 
+# /  \
+# 1 10
+# -------------after we add 2
+#  _9_ 
+# /   \
+# 1  10
+#  \   
+#  2   
+# -------------after we add 8
+#   _9_ 
 #  /   \
-#  2_  7
-# /  \  
-# 1  4  
-#   /   
-#   3   
-# Enter command: insert 9
-#   __5  
-#  /   \ 
-#  2_  7 
-# /  \  \
-# 1  4  9
-#   /    
-#   3    
-# Enter command: insert 6
-#   __5_  
-#  /    \ 
-#  2_   7 
-# /  \ / \
-# 1  4 6 9
-#   /     
-#   3     
-# Enter command: insert 8
-#   __5_   
+#  2  10
+# / \   
+# 1 8   
+# -------------after we add 3
+#   _8   
+#  /  \  
+#  2  9_ 
+# / \   \
+# 1 3  10
+# -------------after we add 7
+#   __8   
+#  /   \  
+#  2   9_ 
+# / \    \
+# 1 3   10
+#    \    
+#    7    
+# -------------after we add 4
+#   ___8   
 #  /    \  
-#  2_   7_ 
-# /  \ /  \
-# 1  4 6  9
-#   /    / 
-#   3    8 
-# Enter command: bye
+#  2_   9_ 
+# /  \    \
+# 1  4   10
+#   / \    
+#   3 7    
+# -------------after we add 6
+#     __8   
+#    /   \  
+#   _4_  9_ 
+#  /   \   \
+#  2   7  10
+# / \ /     
+# 1 3 6     
+# -------------after we add 5
+#     ___8   
+#    /    \  
+#   _4_   9_ 
+#  /   \    \
+#  2   6   10
+# / \ / \    
+# 1 3 5 7    
 # >>> 
+#
+# ===== COMPARE @ https://www.cs.usfca.edu/~galles/visualization/AVLtree.html =====
