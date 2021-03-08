@@ -31,3 +31,96 @@ class AVL(BST):
       else: # R
         return AVL(left.key, AVL(left.left.key, left.left.left, left.left.right), AVL(self.key, left.right, right))
     return AVL(self.key, left, right)
+  
+# =========== RESTART: C:\Users\dgerman\Desktop\march-08-lecture\AVL.py ===========
+# >>> a = AVL(1)
+# >>> a.display()
+# 1
+# >>> a.insert(AVL(2))
+# >>> a.display()
+# 1 
+#  \
+#  2
+# >>> a.insert(AVL(3))
+# >>> a.display()
+# 1  
+#  \ 
+#  2 
+#   \
+#   3
+# >>> a.adjust().display()
+#  2 
+# / \
+# 1 3
+# >>> a.display()
+# 1  
+#  \ 
+#  2 
+#   \
+#   3
+# >>> a = a.adjust()
+# >>> a.display()
+#  2 
+# / \
+# 1 3
+# >>> a.insert(AVL(4))
+# >>> a.display()
+#  2  
+# / \ 
+# 1 3 
+#    \
+#    4
+# >>> a.adjust().display()
+#  2  
+# / \ 
+# 1 3 
+#    \
+#    4
+# >>> a.insert(AVL(5))
+# >>> a.display()
+#  2   
+# / \  
+# 1 3  
+#    \ 
+#    4 
+#     \
+#     5
+# >>> a.adjust().display()
+#  2_  
+# /  \ 
+# 1  4 
+#   / \
+#   3 5
+# >>> a.display()
+#  2   
+# / \  
+# 1 3  
+#    \ 
+#    4 
+#     \
+#     5
+# >>> a = a.adjust()
+# >>> a.display()
+#  2_  
+# /  \ 
+# 1  4 
+#   / \
+#   3 5
+# >>> a.insert(AVL(6))
+# >>> a.display()
+#  2_   
+# /  \  
+# 1  4  
+#   / \ 
+#   3 5 
+#      \
+#      6
+# >>> a = a.adjust() # basic step after insertion 
+# >>> a.display()
+#   _4  
+#  /  \ 
+#  2  5 
+# / \  \
+# 1 3  6
+# >>> 
+
