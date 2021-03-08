@@ -12,10 +12,22 @@ class AVL(BST):
     elif self.right == None: return self.left.depth()
     else: return self.left.depth() - self.right.depth()
   def adjust(self): #-------------------------------------(adjust)-----
-    if self.left == None: left = None
-    else: left = self.left.adjust()
-    if self.right == None: right = None
-    else: right = self.right.adjust()
-    return AVL(self.key + 1, left, right) # simple test
-  #-------------(all three functions are purely functional)-------------
-
+    if self.left == None: (dl, left) = (0, None)
+    else:
+      left = self.left.adjust()
+      dl = left.depth()
+    if self.right == None: (dr, right) = (0, None)
+    else:
+      right = self.right.adjust()
+      dr = right.depth()
+    if dl - dr == -2: # tree would be right heavy 
+      if right.balance() > 0: # LL (right subtree left heavy)
+        return AVL(right.left.key, AVL(self.key, left, right.left.left), AVL(right.key, right.left.right, right.right))
+      else: # L
+        return AVL(right.key, AVL(self.key, left, right.left), AVL(right.right.key, right.right.left, right.right.right))
+    elif dl - dr == 2: # tree would be left heavy
+      if left.balance() < 0: # RR (left subtree right heavy)
+        return AVL(left.right.key, AVL(left.key, left.left, left.right.left), AVL(self.key, left.right.right, right))
+      else: # R
+        return AVL(left.key, AVL(left.left.key, left.left.left, left.left.right), AVL(self.key, left.right, right))
+    return AVL(self.key, left, right)
